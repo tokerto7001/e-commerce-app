@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const allProductsController = require('../controller/productController/allProductsController');
 const oneProductController = require('../controller/productController/oneProductController');
+const isLoggedIn = require('../middlewares/isLoggedIn');
 
 router.get('/', allProductsController);
-router.get('/detail/:id', oneProductController);
+router.get('/detail/:id', isLoggedIn, oneProductController);
 
 module.exports = router;
