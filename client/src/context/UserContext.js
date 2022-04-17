@@ -7,8 +7,10 @@ export const UserProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const login = (user) => {
-        axios.post('/api/login', user)
+    const login = (e, user) => {
+        e.preventDefault();
+        console.log(user)
+        axios.post('/user/login', user.email, user.password)
         .then(res => {
             console.log(res.data)
             setUser(res.data);
