@@ -5,7 +5,7 @@ import {
   Cart,
   Profile,
   Register,
-  Login,
+  LoginPage,
   Home
 } from './pages/index';
 import PrivateRoute from './routers/PrivateRoute';
@@ -16,7 +16,7 @@ function App() {
      <BrowserRouter>
         <Routes>
             <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<LoginPage />} />
 
             {/* Public Routes */}
             <Route element={<PublicRoute />}>
