@@ -17,9 +17,11 @@ const loginController = async(req, res) => {
             // process.env.AUTH_SEC_KEY
             'hasan'
         );
+        
         res.status(200).json({
             message : 'success',
-            data : userToken
+            data : emailControl,
+            token : userToken
         });
     }catch(err){
 
