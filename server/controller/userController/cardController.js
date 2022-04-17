@@ -19,17 +19,30 @@ exports.addCard = async(req, res) => {
         if(!userInfo) res.send('No user found');
         product.quantity --;
         product.save();
-        userInfo.card.map((el) => {
-            if(el._id == id){
-                console.log(el);
-                el.inCard ++
-            }
-        })
+
         let doesExist = userInfo.card.filter(el => el._id == id);
-        if(!doesExist.length){
-            product.inCard = 1
+        if(doesExist.length){
+            // { stock : { $elemMatch : { country : "01", "warehouse.code" : "02" } } }
+            Users.findOne({_id : userId,
+                card : {
+                    $elemMatch : { _id : 'new ObjectId("625c6e4472554dd97b4ec308")' }
+                },
+            }).then((data) => console.log(data))
+        }else{
+            product.inCard = 1;
             userInfo.card.push(product);
         }
+        // userInfo.card.map((el) => {
+        //     if(el._id == id){
+        //         console.log(el);
+        //         el.inCard ++
+        //     }
+        // })
+        
+        // if(!doesExist.length){
+        //     product.inCard = 1
+        //     userInfo.card.push(product);
+        // }
         // console.log(product);
         userInfo.save();
         res.send({
@@ -37,6 +50,7 @@ exports.addCard = async(req, res) => {
             data : userInfo
         });
     }catch(err){
+        console.log(err);
         res.send('Invalid input')
     }
 }
