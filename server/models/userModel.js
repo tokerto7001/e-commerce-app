@@ -22,11 +22,14 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    products : [
-        {
-            
-        }
-    ]
+    card : {
+        type : Array,
+        default : [],
+    },
+    favs : {
+        type : Array,
+        default : []
+    }
 })
 
 const Users = mongoose.model('User', userSchema);
