@@ -3,7 +3,7 @@ const allProductsController = require('../controller/productController/allProduc
 const oneProductController = require('../controller/productController/oneProductController');
 const isLoggedIn = require('../middlewares/isLoggedIn');
 
-router.get('/', allProductsController);
+router.post('/', allProductsController);
 router.get('/detail/:id', isLoggedIn, oneProductController);
 
 module.exports = router;
