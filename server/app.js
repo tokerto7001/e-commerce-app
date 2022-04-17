@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const productRouter = require('./routes/productRouter');
 const userRouter = require('./routes/userRouter');
+require('dotenv').config();
 
 require('./db/db');
 
@@ -14,6 +15,6 @@ app.use(express.json());
 // });
 
 app.use('/products', productRouter);
-app.use('/users', userRouter);
+app.use('/user', userRouter);
 
 module.exports = app;

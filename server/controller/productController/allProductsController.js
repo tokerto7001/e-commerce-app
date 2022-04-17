@@ -17,7 +17,6 @@ const allProductsController = async (req, res) => {
             }else{
                 products = await Products.find({title : new RegExp(keyword, 'i')}).limit(20).skip((page - 1) * 20);
             }
-
         }else{
             if(min_price && max_price){
                 products = await Products.find({price : {$gte : min_price, $lte : max_price}}).limit(20).skip((page - 1) * 20);

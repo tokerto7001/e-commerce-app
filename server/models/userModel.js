@@ -21,7 +21,12 @@ const userSchema = new mongoose.Schema({
     password : {
         type : String,
         required : true
-    }
+    },
+    products : [
+        {
+            
+        }
+    ]
 })
 
 const Users = mongoose.model('User', userSchema);
