@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'RaleWay', sans-serif;
+}
+
+body {
+    /* height: 200vh; */
+    background-color:  #f8f8f8;
+}
