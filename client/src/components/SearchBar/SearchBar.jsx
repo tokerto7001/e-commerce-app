@@ -8,7 +8,7 @@ export default function SearchBar() {
     <div className={styles.iconContainer}>
         <input className={styles.input} type='text' placeholder='Aradığınız ürünü giriniz..' />
         <div className={styles.icon}>
-        <FontAwesomeIcon icon={faSearch} />
+         <FontAwesomeIcon icon={faSearch} />
 
         </div>
     </div>
