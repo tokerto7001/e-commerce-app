@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { UserProvider } from './context/UserContext';
 import {
   Detail,
   Favorite,
@@ -13,8 +14,9 @@ import PublicRoute from './routers/PublicRoute';
 
 function App() {
   return (
-     <BrowserRouter>
+   
         <Routes>
+  
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
 
@@ -30,8 +32,9 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile" element={<Profile />} />
             </Route>
+    
         </Routes>
-     </BrowserRouter>
+   
   );
 }
 

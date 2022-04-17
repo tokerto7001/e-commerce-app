@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 const registerController = async(req, res) => {
+    console.log("registerController");
     try{
         const { email, password, name, surname } = req.body;
         if(!email || !password) res.send('Please fill in the blanks!');

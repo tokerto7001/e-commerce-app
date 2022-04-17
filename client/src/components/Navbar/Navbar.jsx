@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAlt, faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
+
 import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 export default function Navbar() {
