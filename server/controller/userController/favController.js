@@ -13,7 +13,6 @@ exports.addFav = async (req, res) => {
         let product = await Products.findById(id);
         if (!product) return res.send('No product found');
         const userInfo = await Users.findById(userId);
-        // console.log(userInfo);
         if (!userInfo.favs.find(el => el._id == id)) {
             userInfo.favs.push(product);
             userInfo.save();
