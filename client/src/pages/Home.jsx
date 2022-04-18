@@ -8,7 +8,14 @@ function Home() {
   const [products, setProducts] = useState([]);
 
   const getItem = () => {
-      axios.get('http://localhost:8000/products')
+     const payload = {
+       keyword : '',
+       min_price: '',
+       max_price: '',
+       taxonomy_id: '',
+       page: 1
+     }
+      axios.post('http://localhost:8000/products', payload)
       .then(res => {
         console.log(res.data);
         setProducts(res.data.data);
@@ -23,7 +30,9 @@ function Home() {
   }, [])
 
   return (
-    <ProductPage data={products}/>
+  
+      <ProductPage data={products}/>
+  
   )
 }
 

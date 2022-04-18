@@ -1,9 +1,18 @@
 .container {
+    border: 1px solid red;
+    display: flex;
+    width: 80%;
+    margin: 10vh auto;
+    /* height: 100%; */   
+}
+
+.productContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 80%;
-    margin: 10vh auto;
+    margin: 0 auto;
+    border: 1px solid green;
     /* height: 100%; */   
 }
