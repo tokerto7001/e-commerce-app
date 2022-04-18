@@ -7,9 +7,8 @@ export default function PrivateRoute () {
     const { isAuthenticated } = useContext(UserContext);
 
     if(isAuthenticated) {
-        return <MainLayout>
-            <Outlet />
-        </MainLayout>
+        return <Outlet />
+    
     }
 
     return <Navigate to="/login" />

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
@@ -39,9 +39,19 @@ export const UserProvider = ({children}) => {
         .catch((err) => alert(err))
     }
 
+    const checkAuth = (token) => {
+        axios.post('http://localhost:8000/user/checkAuth', { token: token })
+        .then()
+    }
+
     const logout = () => {
     
     };
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        token && checkAuth(token)
+    }, [])
 
     return (
         <UserContext.Provider value={{ user, isAuthenticated, token, login, logout, register }}>

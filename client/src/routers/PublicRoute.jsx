@@ -3,8 +3,8 @@ import MainLayout from "../layouts/MainLayout";
 
 export default function PublicRoute() {
   return (
-    <MainLayout>
+    
         <Outlet />
-    </MainLayout>
+ 
   );
 }
