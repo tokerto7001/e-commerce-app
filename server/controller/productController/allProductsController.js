@@ -6,7 +6,7 @@ const allProductsController = async (req, res) => {
         const { keyword, min_price, max_price, taxonomy_id, page } = req.body;
         let query = {}
         keyword ? query.title = new RegExp(keyword, 'i') : null;
-        min_price && max_price ? query.price = { ['$gte'] : min_price, ['$lte'] : max_price } : min_price ? query.price = { ['glte'] : min_price } : max_price ? query.price = { ['$lte'] : max_price } : null;
+        min_price && max_price ? query.price = { ['$gte'] : min_price, ['$lte'] : max_price } : min_price ? query.price = { ['gte'] : min_price } : max_price ? query.price = { ['$lte'] : max_price } : null;
         taxonomy_id ? query.taxonomy_id = taxonomy_id : null;
         let products = await Products.find(query).limit(20).skip((page -1) * 20);
         // if(!keyword && !min_price && !max_price && !category){

@@ -8,6 +8,7 @@ function Home() {
   const [products, setProducts] = useState([]);
 
   const getItem = () => {
+<<<<<<< HEAD
      const payload = {
        keyword : '',
        min_price: '',
@@ -16,6 +17,9 @@ function Home() {
        page: 1
      }
       axios.post('http://localhost:8000/products', payload)
+=======
+      axios.post('http://localhost:8000/products')
+>>>>>>> 8df60d261467f9dcc860cf57beff87b02740e688
       .then(res => {
         console.log(res.data);
         setProducts(res.data.data);
