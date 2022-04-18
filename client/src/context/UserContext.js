@@ -26,13 +26,25 @@ export const UserProvider = ({children}) => {
             console.log(err);
         })
     };
+    const register = (e, user) => {
+        e.preventDefault();
+        axios.post('http://localhost:8000/user/register', user)
+        .then((res) => {
+            if(res.data == 'success'){
+            navigate('/');
+            }else{
+                alert(res.data)
+            }
+        })
+        .catch((err) => alert(err))
+    }
 
     const logout = () => {
     
     };
 
     return (
-        <UserContext.Provider value={{ user, isAuthenticated, token, login, logout }}>
+        <UserContext.Provider value={{ user, isAuthenticated, token, login, logout, register }}>
             {children}
         </UserContext.Provider>
     );

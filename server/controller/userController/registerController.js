@@ -6,6 +6,7 @@ require('dotenv').config();
 const registerController = async(req, res) => {
     console.log("registerController");
     try{
+        console.log(req.body);
         const { email, password, name, surname } = req.body;
         if(!email || !password) res.send('Please fill in the blanks!');
         const emailControl = await Users.findOne({email : email})
@@ -20,7 +21,10 @@ const registerController = async(req, res) => {
             });
             newUser.save()
             .then(() => res.status(200).send('success'))
-            .catch((err) => res.send('Saving error'));
+            .catch((err) => {
+                // console.log(err);
+                res.send('Saving error')
+            });
         }
 
     }catch(err){

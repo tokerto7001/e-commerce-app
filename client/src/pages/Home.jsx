@@ -8,7 +8,7 @@ function Home() {
   const [products, setProducts] = useState([]);
 
   const getItem = () => {
-      axios.get('http://localhost:8000/products')
+      axios.post('http://localhost:8000/products')
       .then(res => {
         console.log(res.data);
         setProducts(res.data.data);
