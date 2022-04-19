@@ -1,0 +1,24 @@
+{
+  "name": "e-commerce-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"nodemon server\" \"cd client && npm start\" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tokerto7001/e-commerce-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tokerto7001/e-commerce-app/issues"
+  },
+  "homepage": "https://github.com/tokerto7001/e-commerce-app#readme",
+  "dependencies": {
+    "concurrently": "^7.1.0"
+  }
+}

@@ -45,13 +45,19 @@ export default function ProductCard({data}) {
   },[favs])
 
   return (
-    <div className={styles.container}>
+    <div onClick={() => navigate(`/detail/${data._id}`)} className={styles.container}>
       <div className={styles.icon}> 
         {
           isFav ? 
-          <FaHeart onClick={deleteFav}/>
+          <FaHeart onClick={(e) => {
+            e.stopPropagation();
+            deleteFav();
+          }}/>
           :
-          <FaRegHeart onClick={addFav} />
+          <FaRegHeart onClick={(e) => {
+            e.stopPropagation();
+            addFav();
+          }} />
         }
       </div>
       <div className={styles.imgContainer}>
@@ -60,8 +66,12 @@ export default function ProductCard({data}) {
       <div className={styles.infoContainer}>
         <div  className={styles.title}>{data.title.slice(0, 75) + '...'}</div>
         <div className={styles.price}>{data.price}$</div>
-        <button onClick={() => navigate(`/detail/${data._id}`)}>Details</button>
       </div>
+        <button
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className={styles.buy}>Buy</button>
     </div>
   )
 }
