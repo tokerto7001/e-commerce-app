@@ -3,13 +3,14 @@ import styles from './ProductCard.module.css';
 import { FaRegHeart, FaHeart} from 'react-icons/fa';
 import { UserContext } from '../../../context/UserContext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard({data}) {
   const { favs, setFavs } = useContext(UserContext)
-  console.log(favs)
+  // console.log(favs)
   const [isFav, setIsFav] = useState(false);
-
-  console.log(data)
+  const navigate = useNavigate();
+  // console.log(data.id)
   const addFav = () => {
     axios({
       method: 'POST',
@@ -59,6 +60,7 @@ export default function ProductCard({data}) {
       <div className={styles.infoContainer}>
         <div  className={styles.title}>{data.title.slice(0, 75) + '...'}</div>
         <div className={styles.price}>{data.price}$</div>
+        <button onClick={() => navigate(`/detail/${data._id}`)}>Details</button>
       </div>
     </div>
   )
