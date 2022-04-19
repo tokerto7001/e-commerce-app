@@ -53,12 +53,12 @@ export const UserProvider = ({children}) => {
                 token : token
             }
           }).then(res => {
-            //   console.log(res);
+              console.log(res);
             setUser(res.data);
             setIsAuthenticated(true);
             // console.log('****', res.data.favs, '******')
             setFavs(res.data.data.favs)
-            localStorage.setItem('token', res.data.token);
+            // localStorage.setItem('token', res.data.token);
             setToken(res.data.token);
           })
     }
