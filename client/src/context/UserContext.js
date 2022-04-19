@@ -8,6 +8,7 @@ export const UserProvider = ({children}) => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
+    const [favs, setFavs] = useState([]);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const login = (e, user) => {
@@ -15,9 +16,11 @@ export const UserProvider = ({children}) => {
         console.log(user)
         axios.post('http://localhost:8000/user/login', user)
         .then(res => {
-            console.log(res.data)
+            console.log('userInfo', res.data)
             setUser(res.data);
             setIsAuthenticated(true);
+            console.log('****', res.data.favs, '******')
+            setFavs(res.data.data.favs)
             localStorage.setItem('token', res.data.token);
             setToken(res.data.token);
             navigate('/')
@@ -57,7 +60,7 @@ export const UserProvider = ({children}) => {
     }, [])
 
     return (
-        <UserContext.Provider value={{ user, isAuthenticated, token, login, logout, register }}>
+        <UserContext.Provider value={{ user, isAuthenticated, token, favs, setFavs, login, logout, register }}>
             {children}
         </UserContext.Provider>
     );
