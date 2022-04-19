@@ -39,7 +39,7 @@ export default function ProductCard({data}) {
 
 
   useEffect(() => {
-      console.log(favs)
+      // console.log(favs)
       const checkFav = favs?.filter(el => el._id === data._id)
       checkFav.length ? setIsFav(true) : setIsFav(false)
   },[favs])
