@@ -41,7 +41,9 @@ export const UserProvider = ({children}) => {
 
     const checkAuth = (token) => {
         axios.post('http://localhost:8000/user/checkAuth', { token: token })
-        .then()
+        .then(res => {
+            console.log(res)
+        })
     }
 
     const logout = () => {
@@ -50,6 +52,7 @@ export const UserProvider = ({children}) => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
+        console.log(token)
         token && checkAuth(token)
     }, [])
 

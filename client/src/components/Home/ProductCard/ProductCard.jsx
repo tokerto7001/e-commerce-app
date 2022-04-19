@@ -5,7 +5,7 @@ import { FaRegHeart, FaHeart} from 'react-icons/fa';
 export default function ProductCard({data}) {
   return (
     <div className={styles.container}>
-      <FaRegHeart className={styles.icon} />
+      <FaRegHeart  className={styles.icon} />
       <div className={styles.imgContainer}>
         <img height={200} src={data.img} alt={data.name} className={styles.img}/>
       </div>

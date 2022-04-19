@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useRef } from 'react';
 import styles from './SearchBar.module.css';
 
-export default function SearchBar({keyword, getItem}) {
+export default function SearchBar({payload, getItem}) {
   const handleInputChange = (e) => {
-    keyword = e.target.value
+    payload.keyword = e.target.value
   }
 
   return (
-    <form onSubmit={getItem}>
+    <form onSubmit={(e) => getItem(e,payload)}>
             <div className={styles.iconContainer}>
         <input
           onChange={handleInputChange}

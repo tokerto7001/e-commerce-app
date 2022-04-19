@@ -9,10 +9,10 @@ const checkAuth = async(req, res) => {
         const user = jwt_decode(token)
         const userId = user.userId;
         if(!userId) return res.send('no user');
-        const user = await Users.findById(userId)
+        const userInfo = await Users.findById(userId)
         res.status(200).json({
             message : 'success',
-            data : user
+            data : userInfo
         })
     }catch(err){
         res.send('auth error')

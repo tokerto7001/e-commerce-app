@@ -7,7 +7,7 @@ import { faUserAlt, faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-
 
 import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
-export default function Navbar({keyword, getItem}) {
+export default function Navbar({payload, getItem}) {
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
@@ -18,7 +18,7 @@ export default function Navbar({keyword, getItem}) {
           </Link>
         </div>
         <div className={styles.search}>
-          <SearchBar keyword={keyword} getItem={getItem} />
+          <SearchBar payload={payload} getItem={getItem} />
         </div>
         <div className={styles.icons}>
           <div className={styles.icon}>
