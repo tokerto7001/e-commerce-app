@@ -43,10 +43,24 @@ export const UserProvider = ({children}) => {
     }
 
     const checkAuth = (token) => {
-        axios.post('http://localhost:8000/user/checkAuth', { token: token })
-        .then(res => {
-            console.log(res)
-        })
+        axios({
+            method: 'POST',
+            url: `http://localhost:8000/user/checkAuth`,
+            headers : {
+              token: localStorage.getItem('token')
+            },
+            data: {
+                token : token
+            }
+          }).then(res => {
+            //   console.log(res);
+            setUser(res.data);
+            setIsAuthenticated(true);
+            // console.log('****', res.data.favs, '******')
+            setFavs(res.data.data.favs)
+            localStorage.setItem('token', res.data.token);
+            setToken(res.data.token);
+          })
     }
 
     const logout = () => {
