@@ -4,7 +4,7 @@ const isLoggedIn = (req, res, next) => {
     try{
         console.log(req.headers)
         const { token } = req.headers;
-        jwt.verify(token, 'hasan', async(err, decoded) => {
+        jwt.verify(token, process.env.AUTH_SEC_KEY, async(err, decoded) => {
             if(err) {
                 res.send('Unauthorized');
             }

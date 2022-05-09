@@ -3,9 +3,9 @@ const Products = require('../../models/productsModel');
 
 const allProductsController = async (req, res) => {
     try {
-        console.log(req.body)
+        // console.log(req.body)
         const { keyword, min_price, max_price, taxonomy_id, page } = req.body;
-        console.log(keyword)
+        // console.log(keyword)
         let query = {}
         keyword ? query.title = new RegExp(keyword, 'i') : null;
         min_price && max_price ? query.price = { ['$gte'] : min_price, ['$lte'] : max_price } : min_price ? query.price = { ['gte'] : min_price } : max_price ? query.price = { ['$lte'] : max_price } : null;

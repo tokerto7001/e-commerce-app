@@ -3,7 +3,8 @@ const app = express();
 const productRouter = require('./routes/productRouter');
 const userRouter = require('./routes/userRouter');
 const cors = require('cors');
-require('dotenv').config();
+const dotenv = require('dotenv');
+dotenv.config({ path: "./server/.env" });
 
 require('./db/db');
 
