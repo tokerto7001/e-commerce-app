@@ -19,7 +19,7 @@ export const UserProvider = ({children}) => {
             console.log('userInfo', res.data)
             setUser(res.data);
             setIsAuthenticated(true);
-            console.log('****', res.data.favs, '******')
+            // console.log('****', res.data.favs, '******')
             setFavs(res.data.data.favs)
             localStorage.setItem('token', res.data.token);
             setToken(res.data.token);
@@ -69,7 +69,7 @@ export const UserProvider = ({children}) => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        console.log(token)
+        // console.log(token)
         token && checkAuth(token)
     }, [])
 

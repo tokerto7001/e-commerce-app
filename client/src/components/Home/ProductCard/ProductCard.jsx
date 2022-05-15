@@ -6,13 +6,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard({data}) {
-  const { favs, setFavs } = useContext(UserContext)
+  const { favs, setFavs, isAuthenticated } = useContext(UserContext)
   // console.log(favs)
   const [isFav, setIsFav] = useState(false);
   const navigate = useNavigate();
   // console.log(data.id)
   const addFav = () => {
-    axios({
+    if(isAuthenticated){
+       axios({
       method: 'POST',
       url: `http://localhost:8000/user/fav/${data._id}`,
       headers : {
@@ -22,10 +23,15 @@ export default function ProductCard({data}) {
     .then(res => {
       setFavs(res.data.favs)
     })
+    }else{
+      navigate('/login')
+    }
+   
   }
 
   const deleteFav = () => {
-    axios({
+    if(isAuthenticated){
+       axios({
       method: 'DELETE',
       url: `http://localhost:8000/user/fav/${data._id}`,
       headers : {
@@ -35,6 +41,10 @@ export default function ProductCard({data}) {
       console.log('deleted', res.data)
       setFavs(res.data.favs)
     })
+    }else{
+      navigate('/login')
+    }
+   
   }
 
 

@@ -8,10 +8,10 @@ const registerController = async(req, res) => {
     try{
         console.log(req.body);
         const { email, password, name, surname } = req.body;
-        if(!email || !password) res.send('Please fill in the blanks!');
+        if(!email || !password) return res.send('Please fill in the blanks!');
         const emailControl = await Users.findOne({email : email})
         if(emailControl){
-            res.send('This user is already registered.')
+            return res.send('This user is already registered.')
         }else{
             const newUser = await new Users({
                 name : name,

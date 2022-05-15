@@ -9,8 +9,8 @@ const isLoggedIn = require('../middlewares/isLoggedIn');
 router.post('/register', registerController);
 router.post('/login', loginController);
 router.post('/card/:id', addCard);
-router.post('/fav/:id', addFav);
-router.delete('/fav/:id', deleteFav);
+router.post('/fav/:id',isLoggedIn,  addFav);
+router.delete('/fav/:id',isLoggedIn, deleteFav);
 router.post('/checkAuth', isLoggedIn, checkAuth)
 
 module.exports = router;

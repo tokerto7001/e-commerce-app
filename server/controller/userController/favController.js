@@ -7,7 +7,7 @@ exports.addFav = async (req, res) => {
     try {
         const { id } = req.params;
         const { token } = req.headers;
-        console.log(token)
+        // console.log(token)
         const user = jwt_decode(token);
         const userId = user.userId;
         if (!id) return res.send('Invalid id');
