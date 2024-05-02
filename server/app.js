@@ -13,13 +13,10 @@ require('./db/db');
 app.use(express.urlencoded({extended : false}))
 app.use(express.json());
 
-app.use('*', (req, res, next) => {
-  if (!req.originalUrl.includes("/api") ) return res.status(404).send("Not found");
-  next();
-});
 
-app.use('/api/products', productRouter);
-app.use('/api/user', userRouter);
+
+app.use('/products', productRouter);
+app.use('/user', userRouter);
 
 app.all('*', (req, res, next) => {
     res.status(404).json({
